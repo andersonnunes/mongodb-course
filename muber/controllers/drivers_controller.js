@@ -1,6 +1,10 @@
+const Driver = require('../models/Driver');
+
 module.exports = {
   create(req, res) {
     const driverProps = req.body;
-    console.log('In drivers controller', driverProps);
+
+    Driver.create(driverProps)
+      .then(driver => res.send(driver));
   }
 };
